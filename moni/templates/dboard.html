@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block add_styles %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/dboard.css') }}" />{% endblock %}
+
+{% block content %}
+        <h2>{% block title %}{{g.user['username']}}{% endblock %}'s dashboard</h2><br />
+
+        <ul id=pj_list>
+            <li id=new>
+                <h3>new project</h3>
+                <form method="POST">
+                    <label for="pj_name">name </label><br />
+                    <input type="text" name="pj_name" id="pj_name" placeholder="my_cool_project" required/>
+                    <input type="submit" value="create" title="create" id="submit" />
+                </form>
+            </li><br />
+        {% for pj in pjs %}
+            <li class="pj"><a href="{{ url_for('user.pj_overview', pj_id=pj.id) }}">
+                <h3>{{ pj.name }}</h3>
+                <ul class=pj_desc>
+                    <li>at : {{ pj.location }}</li>
+                    <li>starts on : {{ pj.s_date }}</li>
+                    <li>ends on : {{ pj.e_date }}</li>
+                </ul>
+            </a></li>
+        {% endfor %}
+        </ul>
+{% endblock %}

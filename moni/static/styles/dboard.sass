@@ -1,0 +1,38 @@
+ul#pj_list
+    background:
+        color: grey
+    width: 95%
+    height: 100%
+    display: flex
+    flex:
+        wrap: wrap
+    justify-content: center
+    border:
+        radius: 10px
+    li.pj, li#new
+        text:
+            align: justify
+        background:
+            color: rgba(100, 10, 10, 90)
+        box-shadow: 3px 3px 5px #00000090
+        border:
+            radius: 5px
+        width: 250px
+        height: auto
+        overflow: hidden
+        margin: 10px
+        padding: 1%
+        transition:
+            property: box-shadow
+            duration: .1s
+        ul.pj_desc 
+            list-style-type: none
+    li.pj:active, li#new:active
+        box-shadow: 0px 0px 2px #00000090
+
+li.pj, li#new
+    h3 
+        font:
+            size: 15px
+    a 
+        color: white
