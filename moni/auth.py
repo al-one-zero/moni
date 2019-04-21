@@ -1,6 +1,5 @@
 import functools, sys
 from werkzeug.security import check_password_hash, generate_password_hash
-from moni import login_required
 from moni.db import get_db
 from flask import Blueprint, render_template, session, g, request, flash, redirect, url_for
 
@@ -18,7 +17,6 @@ def register():
         db = get_db()
         error = None
 
-        log(username, 'request :')
         if username is None:
             error = 'No username provided'
         elif password is None:
@@ -73,3 +71,13 @@ def load_logged_in_user():
         g.user = None
     else:
         g.user = get_db().execute('select * from user where user_id = ?', (user_id,)).fetchone()
+
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if g.user is None:
+            return redirect(url_for('auth.login'))
+
+        return view(**kwargs)
+
+    return wrapped_view
