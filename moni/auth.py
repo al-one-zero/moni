@@ -40,14 +40,15 @@ def login():
 
         error = None
 
-        g.user = get_db().execute('select * from user where username = ?', (username, )).fetchone()
-        if not g.user:
+        user = get_db().execute('select * from user where username = ?', (username, )).fetchone()
+        if not user:
             error = 'wrong username'
         else:
-            if not check_password_hash(g.user['password'], password):
+            if not check_password_hash(user['password'], password):
                 error = 'wrong password'
         
         if error is None:
+            g.user = user
             session.clear()
             session['user_id'] = g.user['user_id']
             log(g.user['admin'])
