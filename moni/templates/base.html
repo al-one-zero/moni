@@ -19,9 +19,8 @@
                 {% else %}
                     <span id="greeting">Hi {{ g.user['username'] }}</span>
                     <li><a href="{{ url_for('user.dboard') }}">_dashboard</a></li>
-                    {% if g.user.admin %}
-                    <li><a href="{{ url_for('user.admin') }}">_admin</a></li>
-                    {% endif %}
+                    <li><a href="{{ url_for('user.settings') }}">_settings</a></li>
+                    {% if g.user.admin %}<li><a href="{{ url_for('user.admin') }}">_admin</a></li>{% endif %}
                     <li><a href="{{ url_for('auth.logout') }}" >_log out</a></li>
                 {% endif %}
                 </ul>

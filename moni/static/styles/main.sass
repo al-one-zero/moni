@@ -31,8 +31,15 @@ body
     font:
       size: 10px
 
-#main_nav
+ul#main_nav
     list-style-type: none
+    display: flex
+    flex:
+      wrap: wrap
+    justify-content: flex-start
+    li, #greeting
+      margin: 10px
+      width: 100px
 
 body
   form 
@@ -49,3 +56,9 @@ input, label
 
 #submit
   width: 75px
+
+header 
+  display: flex
+  justify-content: space-between
+  h1 
+    size: 50px
