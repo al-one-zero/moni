@@ -9,13 +9,14 @@
     * [ ] Homescreen
 2. User
     * [x] Authentication
-    * [ ] Feed data (Model, add)
+    * [x] Feed data (Model, add)
     * [ ] Visualize data
     * [ ] Settings pane
 3. Admin
     * [ ] Manage users
-4. Privacy features
+4. Misc
     * [ ] Expanse-User decorelation (?)
+    * [ ] Currency excahnge rates update
 
 ### Simple MVC Pattern
 
@@ -24,16 +25,16 @@
       + [ ] DB Scheme
         + [x] Relations
         + [ ] Constraints
-      + [ ] Add
-      + [ ] Remove
+      + [x] Add
+      + [x] Remove
   2. Projects management
-      + [ ] Add
-      + [ ] Remove
+      + [x] Add
+      + [x] Remove
   3. Accounts
       + [x] DB Scheme
       + [x] Create user
       + [ ] Delete user
-      + [ ] Per user data management (Exp, Cat, Pj)
+      + [x] Per user data management (Exp, Cat, Pj)
 
 * Views
   + HTML
@@ -43,14 +44,13 @@
             - [x] Navigation bar
         - [ ] Features presentation
     2. Authentication  
-        - [ ] Log in
-        - [ ] Register
-        - [ ] Log off
+        - [x] Log in
+        - [x] Register
+        - [x] Log off
         - [ ] Admin panel
     3. User Dashboard
-        - [ ] Projects overview
-        - [ ] Add expanse
-        - [ ] Manage project structure
+        - [x] Projects overview
+        - [x] Add expanse
         - [ ] Settings
   + CSS
     1. Global
