@@ -18,9 +18,12 @@
             <li class="pj"><a href="{{ url_for('user.pj_overview', pj_id=pj.id) }}">
                 <h3>{{ pj.name }}</h3>
                 <ul class=pj_desc>
-                    <li>at : {{ pj.location }}</li>
-                    <li>starts on : {{ pj.s_date }}</li>
-                    <li>ends on : {{ pj.e_date }}</li>
+                    {% if pj.location %}<li>at : {{ pj.location }}</li> {% endif %}
+                    {% if pj.s_date %}<li>starts on : {{ pj.s_date }}</li>{% endif %}
+                    {% if pj.e_date %}<li>ends on : {{ pj.e_date }}</li>{% endif %}<br />
+                    <form action="{{ url_for('user.delete_pj', pj_id=pj.id) }}" >
+                        <input type="submit" value="delete" formmethod="post" onclick="return confirm('are you sure ?');" />
+                    </form>
                 </ul>
             </a></li>
         {% endfor %}

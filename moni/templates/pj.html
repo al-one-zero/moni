@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
 
+{% block title %}p#{{pj.id}}: {{pj.name}}{% endblock %}
+
 {% block content %}
-<h3>{% block title %}project #{{ pj.id }} : {{ pj.name }}{% endblock %}</h3>
+<h2>project #{{ pj.id }} : {{ pj.name }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>label</th>
+            <th>value</th>
+            <th>currency</th>
+            <th>category</th>
+            <th>timestamp</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <form action="{{ url_for('user.add_exp', pj_id=pj.id) }}">
+            <tr>
+                <td><input type="text" name="label" placeholder="label" /></td>
+                <td><input type="number" name="value" placeholder="value" /></td>
+                <td><input type="number" name="currency" placeholder="currency" /></td>
+                <td><input type="text" name="cat" placeholder="cat" /></td>
+                <td><input type="submit" name="spend" formmethod="post" /></td>
+            </tr>
+        </form>
+        {% if exps %}{% for e in exps %}<tr>
+            <td>{{ e.label }}</td>
+            <td>{{ e.value }}</td>
+            <td>{{ g.currencies[e.curr-1].name }}</td>
+            <td>{{ e.cat }}</td>
+            <td>{{ e.ts }}</td>
+        </tr>{% endfor %}
+        {% endif %}
+    </tbody>
+</table>
 {% endblock%}
