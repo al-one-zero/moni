@@ -10,13 +10,17 @@ virtualenv -p python3 moni-env
 ```
 3. install the dependencies
 ```bash
-pip install -r requirements
+pip install -r requirements.txt
 ```
-4. init the database
+4. declare app name
+```bash
+export FLASK_APP=moni
+```
+5. init the database
 ```bash
 flask init-db
 ```
-5. run the app
+6. run the app
 ```bash
 flask run
 ```
