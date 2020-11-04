@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block add_styles %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/dboard.css') }}" />{% endblock %}
+{% block add_styles %}<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/dist/dboard.css') }}" />{% endblock %}
 
 {% block content %}
         <h2>{% block title %}{{g.user['username']}}{% endblock %}'s dashboard</h2><br />
